@@ -1,0 +1,11 @@
+export type TaskState="todo"|"doing"|"done";
+export interface Service{id:string;ic:string;name:string;d:string;cat:string;st:string[]}
+export interface Expert{id:string;ic:string;name:string;title:string;ind:string;cat:string;st:string[];d:string}
+export interface EventItem{id:string;name:string;spk:string;date:string;time:string;mode:string;loc:string;cat:string;st:string[];d:string}
+export interface Resource{id:string;name:string;type:string;cat:string;st:string[];lvl:string;min:number;d:string}
+export type Item=Service|Expert|EventItem|Resource;
+export type Kind="s"|"x"|"e"|"r";
+export interface Profile{type:string;stage:string;goal:string;challenge:string;interests:string[]}
+export interface Rec{recommendation_type:string;title:string;reason:string;related_service:string;related_resource:string;next_action:string}
+export interface ChatMsg{r:"u"|"a";t:string;recs?:Rec[];task?:string|null}
+export interface User{id:string;name:string;email:string;role:"user"|"admin";profile:Profile|null;tasks:Record<string,TaskState>;saved:string[];used:string[];req:string[];reg:string[];chat:ChatMsg[];log:string[];seen:boolean}
